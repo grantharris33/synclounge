@@ -70,6 +70,10 @@
 <script>
 const axios = require('axios');
 
+const SettingsHelper = require('../SettingsHelper');
+
+const settings = new SettingsHelper();
+
 export default {
   name: 'signin',
   data() {
@@ -97,7 +101,7 @@ export default {
   },
   methods: {
     async openPopup() {
-      await this.setAuth(this.$store.getters.getPlexToken);
+      await this.setAuth(settings.plexToken);
       this.letsGo();
     },
     async setAuth(authToken) {
@@ -208,6 +212,9 @@ export default {
         this.$store.commit('setSetting', ['ALTUSERNAME', value]);
       },
     },
+    slPlexToken() {
+      return this.$store.getters.getPlexToken;
+    },
     sBrowser() {
       let sBrowser;
       const sUsrAg = navigator.userAgent;
@@ -240,7 +247,7 @@ export default {
   },
   async mounted() {
     let authToken = null;
-    authToken = this.$store.getters.getPlexToken;
+    authToken = this.slPlexToken();
     // Check for PlexToken set via SyncLounge or Plex
     if (window.localStorage.getItem('myPlexAccessToken')) {
       authToken = window.localStorage.getItem('myPlexAccessToken');
