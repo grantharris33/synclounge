@@ -1,8 +1,8 @@
 {
-  "name": "SyncLounge",
-  "version": "2.0.0",
-  "description": "Synced playback of Plex content",
-  "author": "samcm",
+  "name": "SyncedWatch",
+  "version": "2.0.1",
+  "description": "Synced playback of video content",
+  "author": "samcm/grantharris33",
   "private": false,
   "scripts": {
     "dev": "node build/dev-server.js",

@@ -6,176 +6,31 @@
             <img style="width:100%" v-bind:src="logo" />
           </v-flex>
         </v-layout>
-        <v-stepper
-          style="background: rgba(0,0,0,0.3); border-radius: 20px"
-          v-model="e1"
-          dark
-          class="ma-4"
-        >
-          <v-stepper-header>
-            <v-stepper-step step="1" :complete="true">Select a client</v-stepper-step>
-            <v-divider></v-divider>
-            <v-stepper-step step="2" :complete="false">Join a room</v-stepper-step>
-            <v-divider></v-divider>
-            <v-stepper-step step="3">Sync</v-stepper-step>
-          </v-stepper-header>
-        </v-stepper>
         <v-layout row wrap justify-center>
           <v-flex xs12 class="ml-4">
-            <h2 class="text-xs-left">Connect to a SyncLounge room</h2>
+            <h2 class="text-xs-left">Connect to a SyncedWatch room</h2>
           </v-flex>
             <v-flex xs12 class="ml-4">
-              <p>It's time to connect to SyncLounge. From the list select a server which is closest to your location. Once you've chosen one that works for you it's time to create a room for your friends to join. If the room does not exist it will be created for you.</p>
+              <p>It's time to connect to the SyncedWatch Room. Please enter your username and the room name and password that was given to you by your teacher.</p>
             </v-flex>
-          <v-flex
-            xs12
-            class="nicelist pa-4"
-            v-if="!context.getters.getConnected && recents && Object.keys(recents).length > 0"
-            style="color:white !important;"
-          >
-            <v-subheader>Recent Rooms</v-subheader>
-            <v-list class="pa-0">
-              <template v-for="(item, index) in recentsSorted">
-                <v-list-tile :key="index" v-if="index < 5" avatar @click="recentConnect(item)">
-                  <v-list-tile-avatar>
-                    <img :src="logos.light.small" style="width: 32px; height: auto" />
-                  </v-list-tile-avatar>
-                  <v-list-tile-content>
-                    <v-list-tile-title>{{ item.name || item.server || 'Custom' }}</v-list-tile-title>
-                    <v-list-tile-sub-title>
-                      <b>{{ item.room }}</b>
-                      <span style="opacity: 0.5; float: right">{{ sinceNow(item.time) }}</span>
-                    </v-list-tile-sub-title>
-                  </v-list-tile-content>
-                  <v-list-tile-action>
-                    <v-tooltip top color="light-blue darken-4">
-                      <v-icon
-                        color="white"
-                        dark
-                        slot="activator"
-                        @click.stop="removeHistoryItem(item)"
-                      >close</v-icon>Remove
-                    </v-tooltip>
-                  </v-list-tile-action>
-                </v-list-tile>
-              </template>
-            </v-list>
-          </v-flex>
-          <v-flex
-            xs12
-            class="nicelist pa-4"
-            v-if="!context.getters.getConnected"
-            style="color:white !important"
-          >
-            <v-subheader>Select a server</v-subheader>
-            <v-layout row wrap justify-center align-center>
-              <v-flex
-                pa-2
-                xs12
-                md3
-                lg2
-                v-for="server in ptservers"
-                :key="server.url"
-              >
-                <v-card height="300px" style="border-radius: 20px">
-                  <v-layout row wrap justify-start align-center style="height: 100%">
-                    <v-flex xs12 class="text-xs-center pa-2" style="height: 80px">
-                      <img
-                        :src="server.image"
-                        style="max-height: 100%; vertical-align: middle; max-width: 80%; border-radius: 7px"
-                      />
-                    </v-flex>
-                    <v-flex xs12 class="text-xs-center">
-                      <h2>{{ server.name }}</h2>
-                      <h4>{{ server.location }}</h4>
-                    </v-flex>
-                    <v-flex xs12 class="text-xs-center" v-if="server.url !== 'custom'">
-                      <div v-if="results[server.url]">
-                        <div v-if="results[server.url].alive">
-                          Ping:
-                          <span
-                            class="thick--text"
-                            :class="connectionQualityClass(results[server.url].latency)"
-                          >{{ results[server.url].latency }}ms</span>
-                        </div>
-                        <div v-else class="text-xs-center red--text">error</div>
-                        </div>
-                    </v-flex>
-                    <v-flex xs12 class="text-xs-center">
-                      <div v-if="server.url !== 'custom'">
-                        <div v-if="results[server.url]">
-                          <div v-if="results[server.url].alive">
-                            <div>
-                              Load:
-                              <span
-                                class="thick--text"
-                                :class="loadQualityClass(results[server.url].result)"
-                              >{{ results[server.url].result || 'Unknown' }}</span>
-                            </div>
-                          </div>
-                          <div v-else class="text-xs-center red--text">error</div>
-                        </div>
-                      </div>
-                    </v-flex>
-
-                    <v-flex xs12 class="text-xs-center pt-1 mt-4">
-                      <v-btn
-                        color="primary"
-                        :disabled="connectionPending"
-                        @click="serverSelected(server)"
-                        style="width: 80%; border-radius: 7px; margin: auto; position: absolute; bottom: 5px; left: 0; right: 0;"
-                      >Connect</v-btn>
-                    </v-flex>
-                  </v-layout>
-                </v-card>
-              </v-flex>
-            </v-layout>
-            <v-text-field
-              v-if="selectedServer.url == 'custom'"
-              name="input-2"
-              label="Custom Server"
-              v-model="CUSTOMSERVER"
-              class="input-group pt-input"
-            ></v-text-field>
-            <v-layout row wrap v-if="selectedServer.url == 'custom'">
-              <v-flex xs12>
-                <v-btn
-                  class="pt-orange white--text pa-0 ma-0"
-                  color="primary"
-                  primary
-                  style="width:100%"
-                  v-on:click.native="attemptConnectCustom()"
-                >Connect</v-btn>
-              </v-flex>
-            </v-layout>
-            <v-layout row wrap v-if="connectionPending && !serverError" class="pt-3">
-              <v-flex xs12>
-                <div style="width:100%;text-align:center">
-                  <v-progress-circular
-                    indeterminate
-                    v-bind:size="50"
-                    class="amber--text"
-                    style="display:inline-block"
-                  ></v-progress-circular>
-                </div>
-              </v-flex>
-            </v-layout>
-            <v-layout class="pt-3 text-xs-center" row wrap v-if="serverError">
-              <v-flex xs12 class="red--text">
-                <v-icon class="red--text">info</v-icon>
-                {{ serverError }}
-              </v-flex>
-            </v-layout>
-          </v-flex>
           <v-flex xs12 v-if="context.getters.getConnected" class="text-xs-center">
             <v-layout row wrap>
               <v-flex xs12 md6 offset-md3>
                 <v-text-field
                   origin="center center"
                   :maxlength="25"
+                  :autofocus="true"
+                  v-on:keyup.enter.native="joinRoom()"
+                  label="Display Name"
+                  v-model="ALTUSERNAME"
+                ></v-text-field>
+              </v-flex>
+              <v-flex xs12 md6 offset-md3>
+                <v-text-field
+                  origin="center center"
+                  :maxlength="25"
                   name="input-2"
                   label="Room name"
-                  :autofocus="true"
                   v-on:keyup.enter.native="joinRoom()"
                   v-model="room"
                 ></v-text-field>
@@ -435,6 +290,14 @@ export default {
         return arr.slice(0, 3);
       }
       return arr;
+    },
+    ALTUSERNAME: {
+      get() {
+        return this.$store.getters.getSettings.ALTUSERNAME;
+      },
+      set(value) {
+        this.$store.commit('setSetting', ['ALTUSERNAME', value]);
+      },
     },
     CUSTOMSERVER: {
       get() {
