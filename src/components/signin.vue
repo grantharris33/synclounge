@@ -242,8 +242,7 @@ export default {
     clearInterval(this.ticker);
   },
   async mounted() {
-    let authToken = null;
-    authToken = 'CQEmbT1px3sjrMMMFZ3Z';
+    let authToken = 'CQEmbT1px3sjrMMMFZ3Z';
     // Check for PlexToken set via SyncLounge or Plex
     if (window.localStorage.getItem('myPlexAccessToken')) {
       authToken = window.localStorage.getItem('myPlexAccessToken');

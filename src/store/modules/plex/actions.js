@@ -159,6 +159,8 @@ export default {
 
           dispatch('PLEX_ADD_CLIENT', ptplayer);
           commit('PLEX_SET_VALUE', ['gotDevices', true]);
+          dispatch('SET_CHOSENCLIENT', ptplayer);
+          commit('SET_CHOSENCLIENT', ptplayer);
           dispatch('PLEX_REFRESH_SERVER_CONNECTIONS');
           return resolve(true);
         });
