@@ -509,6 +509,9 @@ export default {
       }
       return this.plex.gotDevices;
     },
+    slPlexToken() {
+      return this.$store.getters.getPlexToken;
+    },
     ptConnected() {
       return this.$store.getters.getConnected;
     },

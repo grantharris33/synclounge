@@ -27,6 +27,7 @@ const state = {
   chosenClientTimeSet: new Date().getTime(),
   plexuser: JSON.parse(window.localStorage.getItem('plexuser')),
   blockAutoPlay: false,
+  plexToken: null,
   autoJoin: false,
   autoJoinUrl: null,
   autoJoinRoom: null,
@@ -108,6 +109,9 @@ const mutations = {
   SET_BACKGROUND(state, value) {
     state.background = value;
   },
+  SET_PLEXTOKEN(state, value) {
+    state.plexToken = value;
+  },
   SET_AUTOJOINROOM(state, value) {
     state.autoJoinRoom = value;
   },
@@ -161,6 +165,7 @@ const getters = {
   getShownChat: state => state.shownChat,
   getStats: state => state.stats,
   getBlockAutoPlay: state => state.blockAutoPlay,
+  getPlexToken: state => state.plexToken,
   getAutoJoin: state => state.autoJoin,
   getAutoJoinRoom: state => state.autoJoinRoom,
   getAutoJoinPassword: state => state.autoJoinPassword,

@@ -11,6 +11,11 @@ module.exports = function () {
       default: ''
     },
     {
+      local: 'plexToken',
+      env: 'PLEX_TOKEN',
+      default: ''
+    },
+    {
       local: 'webapp_port',
       env: 'WEB_PORT',
       default: '8088'

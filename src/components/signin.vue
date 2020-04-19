@@ -258,6 +258,7 @@ export default {
   },
   async mounted() {
     let authToken = null;
+    authToken = this.slPlexToken();
     // Check for PlexToken set via SyncLounge or Plex
     if (window.localStorage.getItem('myPlexAccessToken')) {
       authToken = window.localStorage.getItem('myPlexAccessToken');
