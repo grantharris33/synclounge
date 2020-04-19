@@ -20,7 +20,7 @@ console.log('Got settings', getAll());
 
 const state = {
   appTitle: 'SyncLounge',
-  appVersion: '2.0.0',
+  appVersion: '2.0.1',
   background: null,
   shownChat: false,
   chosenClient: null,
