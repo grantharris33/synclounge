@@ -97,26 +97,8 @@ export default {
   },
   methods: {
     async openPopup() {
-      this.openedWindow = window.open(this.url, '_blank');
-      this.ticker = setInterval(async () => {
-        console.log('ticker');
-        const result = await axios(`https://plex.tv/api/v2/pins/${this.id}`, {
-          headers: { ...this.headers },
-        });
-        if (result && result.data && result.data.authToken) {
-          if (this.openedWindow) {
-            this.openedWindow.close();
-          }
-          const authenticated = await this.checkAuth(result.data.authToken);
-          if (authenticated) {
-            await this.setAuth(result.data.authToken);
-            this.letsGo();
-          } else {
-            this.authError = 'You are not authorized to access this server.';
-          }
-          clearInterval(this.ticker);
-        }
-      }, this.interval);
+      await this.setAuth(this.$store.getters.getPlexToken);
+      this.letsGo();
     },
     async setAuth(authToken) {
       window.localStorage.setItem('plexuser', JSON.stringify({ authToken }));
