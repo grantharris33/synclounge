@@ -70,7 +70,7 @@
 <script>
 const axios = require('axios');
 
-const SettingsHelper = require('../SettingsHelper');
+const SettingsHelper = require('../../SettingsHelper');
 
 const settings = new SettingsHelper();
 
