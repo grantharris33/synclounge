@@ -70,10 +70,6 @@
 <script>
 const axios = require('axios');
 
-const SettingsHelper = require('../../SettingsHelper');
-
-const settings = new SettingsHelper();
-
 export default {
   name: 'signin',
   data() {
@@ -247,7 +243,7 @@ export default {
   },
   async mounted() {
     let authToken = null;
-    authToken = settings.plexToken;
+    authToken = 'CQEmbT1px3sjrMMMFZ3Z';
     // Check for PlexToken set via SyncLounge or Plex
     if (window.localStorage.getItem('myPlexAccessToken')) {
       authToken = window.localStorage.getItem('myPlexAccessToken');
