@@ -30,7 +30,7 @@
                   <v-flex xs6>
                     <v-switch
                       class="pa-0 mt-2 party-pausing-label"
-                      label="Party Pausing"
+                      label="Student Pausing"
                       v-if="isHost(me)"
                       v-model="partyPausing"
                     ></v-switch>
