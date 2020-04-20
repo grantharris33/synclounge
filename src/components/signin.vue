@@ -24,7 +24,7 @@
           <h1
             v-if="!token"
             class="center-text pa-4"
-          >To use SyncLounge you need to sign in with your Plex account.</h1>
+          >Connect to the SyncedWatch Server</h1>
           <div v-if="!preAuth">
             <v-layout wrap row style="position:relative">
               <v-flex xs12 md4 offset-md4>
