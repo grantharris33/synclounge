@@ -84,6 +84,14 @@ export default {
       }
       return !this.$store.state.plex.gotDevices;
     },
+    ALTUSERNAME: {
+      get() {
+        return this.$store.getters.getSettings.ALTUSERNAME;
+      },
+      set(value) {
+        this.$store.commit('setSetting', ['ALTUSERNAME', value]);
+      },
+    },
   },
   methods: {
     async letsGo() {
