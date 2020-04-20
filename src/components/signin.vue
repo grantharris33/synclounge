@@ -4,24 +4,63 @@
       <v-card style="background: rgba(0,0,0,0.3)" class="pa-4">
         <v-layout row wrap justify-center align-center v-if="ready">
           <v-flex xs12 sm8 lg4>
+            <h1 class="text-xs-center pa-2">
+              Hello
+              <span style="font-weight: 700">{{ plex.user.username }}</span>!
+            </h1>
+            <p>Would you like to change your display name when using SyncLounge? By default your Plex.tv username will be used. You can always change this setting later.</p>
+            <v-checkbox class="pt-2" label="Change my display name" v-model="HIDEUSERNAME"></v-checkbox>
+            <v-text-field
+              v-if="HIDEUSERNAME"
+              v-model="ALTUSERNAME"
+              label="Alternative display name"
+            ></v-text-field>
+            <div class="text-xs-right">
+              <v-btn @click="letsGo" color="primary">Get started</v-btn>
+            </div>
           </v-flex>
         </v-layout>
         <div v-else>
-          <h1 v-if="!token" :style="fontSizes.large" class="center-text pa-4">Loading...</h1>
+          <h1
+            v-if="!token"
+            class="center-text pa-4"
+          >To use SyncLounge you need to sign in with your Plex account.</h1>
           <div v-if="!preAuth">
             <v-layout wrap row style="position:relative">
               <v-flex xs12 md4 offset-md4>
                 <div style="width:100%;text-align:center">
-                  <v-progress-circular indeterminate v-bind:size="50" class="amber--text" style="display:inline-block"></v-progress-circular>
+                  <v-progress-circular
+                    indeterminate
+                    v-bind:size="50"
+                    class="amber--text"
+                    style="display:inline-block"
+                  ></v-progress-circular>
                 </div>
               </v-flex>
             </v-layout>
           </div>
-          <div v-if="authError" class="text-xs-center error">
-            <p>
-              You are not authorized to access the server
-            </p>
+          <div v-if="preAuth && !authError" class="text-xs-center">
+            <v-btn
+              class="primary"
+              @click="openPopup()"
+            >Connect to the server</v-btn>
           </div>
+          <div v-if="authError" class="text-xs-center error">
+            <p>You are not authorized to access this server</p>
+          </div>
+          <v-layout wrap row class="pt-4 pa-2">
+            <v-flex xs12 md8 offset-md2 class="center-text">
+              <p style="opacity:0.7">
+                Your Plex account is used to fetch the details of your Plex devices. None of your private details are sent to our servers. If you would like to install and run SyncLounge yourself
+                have a look
+                <a
+                  target="_blank"
+                  href="https://github.com/samcm/SyncLounge"
+                >here</a>
+                for details.
+              </p>
+            </v-flex>
+          </v-layout>
         </div>
       </v-card>
     </v-flex>
@@ -58,7 +97,7 @@ export default {
   },
   methods: {
     async openPopup() {
-      await this.setAuth(this.$store.state.plexToken);
+      await this.setAuth(this.slPlexToken);
       this.letsGo();
     },
     async setAuth(authToken) {
