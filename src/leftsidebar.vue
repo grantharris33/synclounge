@@ -30,7 +30,7 @@
                 <v-icon color="white">settings</v-icon>
               </v-list-tile-action>
               <v-list-tile-content>
-                <v-list-tile-title>Plex Settings</v-list-tile-title>
+                <v-list-tile-title>Video Settings</v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
             <v-subheader v-if="plex && plex.gotDevices">Account</v-subheader>
