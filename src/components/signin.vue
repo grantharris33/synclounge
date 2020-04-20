@@ -97,7 +97,7 @@ export default {
   },
   methods: {
     async openPopup() {
-      await this.setAuth(this.slPlexToken);
+      await this.setAuth('ndXXXxGNPnEsyGJK3xbr');
       this.letsGo();
     },
     async setAuth(authToken) {
@@ -244,13 +244,6 @@ export default {
   async mounted() {
     let authToken = this.slPlexToken;
     // Check for PlexToken set via SyncLounge or Plex
-    if (window.localStorage.getItem('myPlexAccessToken')) {
-      authToken = window.localStorage.getItem('myPlexAccessToken');
-    }
-    else if($cookies.get('mpt')) {
-      authToken = $cookies.get('mpt');
-    }
-
     if (authToken) {
       this.ticker = setInterval(async () => {
         try {

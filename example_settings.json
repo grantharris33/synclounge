@@ -9,5 +9,6 @@
     "autoJoinRoom": "",
     "autoJoinPassword": "",
     "servers": "",
-    "customServer": ""
+    "customServer": "",
+    "plexToken": ""
 }
