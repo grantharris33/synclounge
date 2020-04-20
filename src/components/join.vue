@@ -8,12 +8,19 @@
                 <img :src="logos.light.small" style="width: 90%" />
               </v-flex>
               <v-flex md9>
-                <h1 class="white--text pa-1"> Welcome to SyncLounge!</h1>
+                <h1 class="white--text pa-1"> Welcome to SyncedWatch!</h1>
                 <div class="pt-2">
                   <div>
                     <span style="font-weight:900">{{ owner }}</span> has invited you to join the room
                     <span style="font-weight:900">{{ room }}</span>
                   </div>
+                  <v-text-field
+                    origin="center center"
+                    :maxlength="25"
+                    :autofocus="true"
+                    label="Display Name"
+                    v-model="ALTUSERNAME"
+                  ></v-text-field>
                 </div>
                 <v-layout wrap row class="pa-4 pt-2" justify-center align-center>
                   <v-flex xs12 md8 class="text-xs-center">
@@ -25,7 +32,7 @@
             </v-container>
             <v-divider></v-divider>
             <p style="opacity:0.7" class="text-xs-center pt-3">
-              SyncLounge is a tool to sync Plex content with your family and friends. For more info click <a target="_blank" href="https://github.com/samcm/synclounge"> here</a>.
+              SyncedWatch is a tool to sync video playback with your other people. For more info click <a target="_blank" href="https://github.com/grantharris33/syncedwatch"> here</a>.
             </p>
         </v-card>
       </v-flex>
