@@ -242,7 +242,7 @@ export default {
     clearInterval(this.ticker);
   },
   async mounted() {
-    let authToken = this.slPlexToken;
+    const authToken = this.slPlexToken;
     // Check for PlexToken set via SyncLounge or Plex
     if (authToken) {
       this.ticker = setInterval(async () => {
