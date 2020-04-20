@@ -22,7 +22,7 @@
               </v-flex>
               <v-flex xs12>
                 <div class="participant-count">
-                  {{ ptUsers.length }} people
+                  {{ ptUsers.length }} Users
                 </div>
               </v-flex>
               <v-flex xs12>
