@@ -81,7 +81,7 @@
     <v-dialog v-model="plexsettingstoggle" width="350">
       <v-card style="background-color: #151924" class="pa-3">
         <div class="text-xs-center">
-          <h2>Plex Settings</h2>
+          <h2>Video Settings</h2>
         </div>
         <v-divider class="mt-2 mb-2"></v-divider>
         <plexsettings class="darken-4 pa-1" v-if="validPlex && plex.gotDevices"></plexsettings>
