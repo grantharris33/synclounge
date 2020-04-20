@@ -27,7 +27,7 @@ const state = {
   chosenClientTimeSet: new Date().getTime(),
   plexuser: JSON.parse(window.localStorage.getItem('plexuser')),
   blockAutoPlay: false,
-  plexToken: 'ndXXXxGNPnEsyGJK3xbr',
+  plexToken: null,
   autoJoin: false,
   autoJoinUrl: null,
   autoJoinRoom: null,

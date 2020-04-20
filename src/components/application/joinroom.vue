@@ -7,13 +7,13 @@
           </v-flex>
         </v-layout>
         <v-layout row wrap justify-center>
-          <v-flex xs12 class="ml-4">
-            <h2 class="text-xs-left">Connect to a SyncedWatch room</h2>
+          <v-flex xs12 md6 offset-md3 class="ml-4">
+            <h2 class="text-xs-center">Connect to a SyncedWatch room</h2>
           </v-flex>
-            <v-flex xs12 class="ml-4">
+            <v-flex xs12 md6 offset-md3 class="ml-4">
               <p>It's time to connect to the SyncedWatch Room. Please enter your username and the room name and password that was given to you by your teacher.</p>
             </v-flex>
-          <v-flex xs12 v-if="context.getters.getConnected" class="text-xs-center">
+          <v-flex v-if="context.getters.getConnected" xs12 class="text-xs-center">
             <v-layout row wrap>
               <v-flex xs12 md6 offset-md3>
                 <v-text-field
@@ -56,6 +56,9 @@
               </v-layout>
             </v-layout>
           </v-flex>
+          <v-else>
+            <h1>Something went wrong</h1>
+          </v-else>
         </v-layout>
       </v-flex>
     </v-layout>
