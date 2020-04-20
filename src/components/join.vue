@@ -11,16 +11,18 @@
                 <h1 class="white--text pa-1"> Welcome to SyncedWatch!</h1>
                 <div class="pt-2">
                   <div>
-                    <span style="font-weight:900">{{ owner }}</span> has invited you to join the room
+                    <span style="font-weight:900">You have been invited to join the room
                     <span style="font-weight:900">{{ room }}</span>
                   </div>
-                  <v-text-field
-                    origin="center center"
-                    :maxlength="25"
-                    :autofocus="true"
-                    label="Display Name"
-                    v-model="ALTUSERNAME"
-                  ></v-text-field>
+                  <v-flex xs4 md6>
+                    <v-text-field
+                      origin="center center"
+                      :maxlength="25"
+                      :autofocus="true"
+                      label="Display Name"
+                      v-model="ALTUSERNAME"
+                    ></v-text-field>
+                  </v-flex>
                 </div>
                 <v-layout wrap row class="pa-4 pt-2" justify-center align-center>
                   <v-flex xs12 md8 class="text-xs-center">
