@@ -16,11 +16,6 @@
               </v-flex>
             </v-layout>
           </div>
-          <div v-if="testClientErrorMsg" class="text-xs-center error">
-            <p>
-              Error Loading the SyncedWatch Video Player
-            </p>
-          </div>
       </v-card>
     </v-flex>
   </v-layout>

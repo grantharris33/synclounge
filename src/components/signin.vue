@@ -192,9 +192,6 @@ export default {
     store() {
       return this;
     },
-    slPlexToken() {
-      return this.$store.getters.getPlexToken;
-    },
     HIDEUSERNAME: {
       get() {
         return this.$store.getters.getSettings.HIDEUSERNAME;
@@ -210,6 +207,9 @@ export default {
       set(value) {
         this.$store.commit('setSetting', ['ALTUSERNAME', value]);
       },
+    },
+    slPlexToken() {
+      return this.$store.getters.getPlexToken;
     },
     sBrowser() {
       let sBrowser;
