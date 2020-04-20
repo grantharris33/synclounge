@@ -4,7 +4,7 @@ export const defaultSettings = {
   CLIENTPOLLINTERVAL: 1000,
   AUTOPLAY: true,
   HIDEUSERNAME: true,
-  ALTUSERNAME: 'Default User',
+  ALTUSERNAME: '',
   DARKMODE: false,
   SYNCMODE: 'cleanseek',
   SYNCFLEXABILITY: 5000,

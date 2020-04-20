@@ -9,7 +9,7 @@
                 <img class="pa-1" :src="plex.user.thumb" />
               </v-list-tile-avatar>
               <v-list-tile-content>
-                <v-list-tile-title style="font-weight: bold">{{ plex.user.username }}</v-list-tile-title>
+                <v-list-tile-title style="font-weight: bold">{{ ALTUSERNAME }}</v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
             <v-divider></v-divider>
@@ -111,6 +111,14 @@ export default {
     };
   },
   computed: {
+    ALTUSERNAME: {
+      get() {
+        return this.$store.getters.getSettings.ALTUSERNAME;
+      },
+      set(value) {
+        this.$store.commit('setSetting', ['ALTUSERNAME', value]);
+      },
+    },
     plex() {
       return this.$store.getters.getPlex;
     },
