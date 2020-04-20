@@ -24,7 +24,7 @@
       style="z-index: 5"
     >
       <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
-      <a href="https://synclounge.tv" target="_blank">
+      <a href="https://" target="_blank">
         <img
           class="ma-1 hidden-xs-only"
           style="height: 42px; width: auto; vertical-align: middle"
@@ -60,7 +60,6 @@
           :href="item.href"
           :target="item.target"
         >{{ item.title }}</v-btn>
-        <v-btn small tag="a" class="hidden-sm-and-down" flat @click="donateDialog = true">Donate ♥</v-btn>
         <v-icon
           v-if="showRightDrawerButton"
           @click="toggleDrawerRight"
@@ -113,9 +112,6 @@
           <div style="text-align:center; width:100%">{{ snackbarMsg }}</div>
         </v-snackbar>
         <upnext></upnext>
-        <v-dialog v-model="donateDialog" max-width="650px">
-          <donate :donateDialog="donateDialog" :onClose="() => this.donateDialog = false"></donate>
-        </v-dialog>
       </v-container>
     </v-content>
   </v-app>
@@ -167,21 +163,8 @@ export default {
         {
           title: 'Preferences',
         },
-        {
-          title: 'Signout',
-        },
       ],
       links: [
-        {
-          title: 'Github',
-          href: 'https://github.com/samcm/SyncLounge',
-          target: '_blank',
-        },
-        {
-          title: 'Discord',
-          target: '_blank',
-          href: 'https://discord.gg/fKQB3yt',
-        },
       ],
       appIsFullscreen: false,
     };
@@ -508,9 +491,6 @@ export default {
         return false;
       }
       return this.plex.gotDevices;
-    },
-    slPlexToken() {
-      return this.$store.getters.getPlexToken;
     },
     ptConnected() {
       return this.$store.getters.getConnected;

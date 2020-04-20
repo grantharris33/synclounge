@@ -96,7 +96,7 @@
     <v-dialog v-model="ptsettingstoggle" width="350">
       <v-card style="background-color: #151924" class="pa-3">
         <div class="text-xs-center">
-          <h2>SyncLounge Settings</h2>
+          <h2>SyncedWatch Settings</h2>
         </div>
         <v-divider class="mt-2 mb-2"></v-divider>
         <ptsettings class="darken-4 pa-1"></ptsettings>
@@ -110,9 +110,6 @@
         <v-divider class="mt-2 mb-2"></v-divider>
         <plexsettings class="darken-4 pa-1" v-if="validPlex && plex.gotDevices"></plexsettings>
       </v-card>
-    </v-dialog>
-    <v-dialog v-model="donateDialog" max-width="650px">
-      <donate :donateDialog="donateDialog" :onClose="() => this.donateDialog = false"></donate>
     </v-dialog>
   </v-container>
 </template>

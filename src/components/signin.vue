@@ -97,7 +97,7 @@ export default {
   },
   methods: {
     async openPopup() {
-      await this.setAuth(this.slPlexToken);
+      await this.setAuth(this.$store.state.plexToken);
       this.letsGo();
     },
     async setAuth(authToken) {
@@ -192,6 +192,9 @@ export default {
     store() {
       return this;
     },
+    slPlexToken() {
+      return this.$store.getters.getPlexToken;
+    },
     HIDEUSERNAME: {
       get() {
         return this.$store.getters.getSettings.HIDEUSERNAME;
@@ -239,7 +242,7 @@ export default {
     clearInterval(this.ticker);
   },
   async mounted() {
-    let authToken = this.$store.getters.getPlexToken;
+    let authToken = this.slPlexToken;
     // Check for PlexToken set via SyncLounge or Plex
     if (window.localStorage.getItem('myPlexAccessToken')) {
       authToken = window.localStorage.getItem('myPlexAccessToken');

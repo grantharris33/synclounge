@@ -95,9 +95,6 @@ Vue.mixin({
     slServer() {
       return this.$store.getters.getServer;
     },
-    slPlexToken() {
-      return this.$store.getters.getPlexToken;
-    },
     slRoom() {
       return this.$store.getters.getRoom;
     },

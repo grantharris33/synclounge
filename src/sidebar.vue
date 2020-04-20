@@ -21,11 +21,8 @@
                 </v-menu>
               </v-flex>
               <v-flex xs12>
-                <div v-if="ptUsers.length != 1" class="participant-count">
+                <div class="participant-count">
                   {{ ptUsers.length }} people
-                </div>
-                <div v-else class="participant-count">
-                  It's just you, invite some friends
                 </div>
               </v-flex>
               <v-flex xs12>
@@ -53,7 +50,7 @@
                         <v-icon v-if="playerState(host) === 'play_arrow'">pause</v-icon>
                         <v-icon v-else>play_arrow</v-icon>
                       </v-btn>
-                      <span> Party Pausing is currently {{ partyPausing ? 'enabled' : 'disabled' }} by the host </span>
+                      <span> Student Pausing is currently {{ partyPausing ? 'enabled' : 'disabled' }} by the teacher </span>
                     </v-tooltip>
                   </v-flex>
                 </v-layout>
