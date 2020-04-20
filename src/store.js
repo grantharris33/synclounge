@@ -19,7 +19,7 @@ console.log('Got settings', getAll());
 // Set up out web app socket for fetching short urls
 
 const state = {
-  appTitle: 'SyncLounge',
+  appTitle: 'SyncedWatch',
   appVersion: '2.0.1',
   background: null,
   shownChat: false,

@@ -19,7 +19,7 @@
                 <v-icon color="white">settings</v-icon>
               </v-list-tile-action>
               <v-list-tile-content>
-                <v-list-tile-title>SyncLounge Settings</v-list-tile-title>
+                <v-list-tile-title>SyncedWatch Settings</v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
             <v-list-tile
@@ -43,36 +43,12 @@
               </v-list-tile-content>
             </v-list-tile>
             <v-subheader>About</v-subheader>
-            <v-list-tile href="https://synclounge.tv/" target="_blank">
+            <v-list-tile href="https://github.com/grantharris33/syncedwatch" target="_blank">
               <v-list-tile-action>
                 <v-icon color="white">info</v-icon>
               </v-list-tile-action>
               <v-list-tile-content>
-                <v-list-tile-title>SyncLounge v{{appVersion}}</v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
-            <v-list-tile href="https://discord.gg/fKQB3yt" target="_blank">
-              <v-list-tile-action>
-                <v-icon color="white">chat</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-content>
-                <v-list-tile-title>Discord</v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
-            <v-list-tile href="https://github.com/samcm/synclounge" target="_blank">
-              <v-list-tile-action>
-                <v-icon color="white">code</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-content>
-                <v-list-tile-title>GitHub</v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
-            <v-list-tile @click.stop="donateDialog = true">
-              <v-list-tile-action>
-                <v-icon color="white">favorite</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-content>
-                <v-list-tile-title>Donate</v-list-tile-title>
+                <v-list-tile-title>SyncedWatch v{{appVersion}}</v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
           </template>
