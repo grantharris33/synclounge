@@ -137,7 +137,7 @@
         </h4>
         <v-layout row wrap>
           <v-flex xs12 v-if="Object.keys(plex.servers).length === 0">
-            <h5>No Plex Media Servers found. Make sure your server owner has shared their libraries with you!</h5>
+            <h5>No Media Servers found. Something went wrong loading the media libraries.</h5>
           </v-flex>
           <v-flex
             xs12
@@ -163,15 +163,14 @@
                     </v-flex>
                     <v-flex xs8 class="pl-2">
                       <div>
-                        <h1 style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">{{ server.name }}</h1>
+                        <h1 style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">Media Library</h1>
                         <h4 style="opacity: 0.9">v{{ server.productVersion }}</h4>
-                        <div>Owned by {{ ownerOfServer(server) }}</div>
                         <div v-if="!isConnectable(server)" class="red--text">Unable to connect</div>
                         <div
                           v-if="!isConnectable(server)"
                           class="red--text"
                           style="font-size: 10px"
-                        >Try disabling your adblocker</div>
+                        >Media Server is Down</div>
                       </div>
                     </v-flex>
                   </v-layout>
@@ -379,9 +378,9 @@ export default {
     onDeckItemsPer() {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
-          return 1;
+          return 4;
         case "sm":
-          return 2;
+          return 4;
         case "md":
           return 4;
         case "lg":
