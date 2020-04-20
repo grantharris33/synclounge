@@ -56,9 +56,6 @@
               </v-layout>
             </v-layout>
           </v-flex>
-          <v-else>
-            <h1>Something went wrong</h1>
-          </v-else>
         </v-layout>
       </v-flex>
     </v-layout>

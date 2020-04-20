@@ -97,7 +97,7 @@ export default {
   },
   methods: {
     async openPopup() {
-      await this.setAuth('ndXXXxGNPnEsyGJK3xbr');
+      await this.setAuth(this.slPlexToken);
       this.letsGo();
     },
     async setAuth(authToken) {

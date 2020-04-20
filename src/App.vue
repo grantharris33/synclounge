@@ -240,6 +240,14 @@ export default {
       });
     }
 
+    if (this.config && this.config.plexToken) {
+      this.$store.commit('SET_PLEXTOKEN', this.config.plexToken);
+    } else if (settings && settings.plexToken) {
+      this.$store.commit('SET_PLEXTOKEN', settings.plexToken);
+    } else {
+      this.$store.commit('SET_PLEXTOKEN', 'NOT GONNA WORK');
+    }
+
     // Custom Servers list settings
     let servers = [
       {
