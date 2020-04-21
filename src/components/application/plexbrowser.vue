@@ -314,7 +314,7 @@ export default {
     searchAllServers: _.debounce(function() {
       if (this.searchWord === "") {
         this.results = [];
-        this.searchStatus = "Search your available Plex Media Servers";
+        this.searchStatus = "Search for media";
         return;
       }
       this.searching = true;
@@ -356,7 +356,7 @@ export default {
       onDeckOffset: 0,
       onDeck: null,
       searchWord: "",
-      searchStatus: "Search your available Plex Media Servers",
+      searchStatus: "Search for media",
       searching: false,
       serversHeardBack: []
     };
@@ -365,7 +365,7 @@ export default {
     searchWord() {
       if (this.searchWord === "") {
         this.results = [];
-        this.searchStatus = "Search your available Plex Media Servers";
+        this.searchStatus = "Search for media";
         return;
       }
       this.searchAllServers();
