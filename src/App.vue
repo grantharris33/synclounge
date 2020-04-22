@@ -164,6 +164,13 @@ export default {
           title: 'Preferences',
         },
       ],
+      home: [
+        {
+          title: 'Home',
+          target: '_blank',
+          href: this.$router.push('/browse/'),
+        },
+      ],
       links: [
         {
           title: 'Donate',
