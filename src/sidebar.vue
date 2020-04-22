@@ -30,7 +30,7 @@
                   <v-flex xs6>
                     <v-switch
                       class="pa-0 mt-2 party-pausing-label"
-                      label="Student Pausing"
+                      label="Allow Pausing"
                       v-if="isHost(me)"
                       v-model="partyPausing"
                     ></v-switch>
@@ -50,7 +50,7 @@
                         <v-icon v-if="playerState(host) === 'play_arrow'">pause</v-icon>
                         <v-icon v-else>play_arrow</v-icon>
                       </v-btn>
-                      <span> Student Pausing is currently {{ partyPausing ? 'enabled' : 'disabled' }} by the teacher </span>
+                      <span> Room Pausing is currently {{ partyPausing ? 'enabled' : 'disabled' }} by the host </span>
                     </v-tooltip>
                   </v-flex>
                 </v-layout>

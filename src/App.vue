@@ -24,7 +24,7 @@
       style="z-index: 5"
     >
       <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
-      <a href="https://" target="_blank">
+      <a href="https://watch.1222.tech" target="_blank">
         <img
           class="ma-1 hidden-xs-only"
           style="height: 42px; width: auto; vertical-align: middle"
@@ -165,6 +165,11 @@ export default {
         },
       ],
       links: [
+        {
+          title: 'Donate',
+          target: '_blank',
+          href: 'https://ko-fi.com/D1D0XN1R',
+        },
       ],
       appIsFullscreen: false,
     };
