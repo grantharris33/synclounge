@@ -354,4 +354,5 @@ console.log(`SyncLounge Server successfully started on port ${PORT}`);
 
 setInterval(() => {
   console.log(`Connected users: ${Object.keys(ptserver_io.sockets.connected).length}`);
-}, 5000);
+  console.log(`Occupied Rooms: ${Object.keys(ptserver_io.sockets.adapter.rooms).length - Object.keys(ptserver_io.sockets.connected).length}`);
+}, 30000);
