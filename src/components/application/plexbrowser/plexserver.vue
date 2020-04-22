@@ -107,9 +107,9 @@ export default {
       switch (this.$vuetify.breakpoint.name) {
         case 'xs': return 3;
         case 'sm': return 6;
-        case 'md': return 50;
-        case 'lg': return 50;
-        case 'xl': return 50;
+        case 'md': return 36;
+        case 'lg': return 36;
+        case 'xl': return 48;
       }
     },
     onDeckItemsPer() {

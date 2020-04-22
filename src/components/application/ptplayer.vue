@@ -777,7 +777,7 @@ export default {
         'X-Plex-Platform': 'SyncLounge',
         'X-Plex-Platform-Version': '57.0',
         'X-Plex-Device': 'Web',
-        'X-Plex-Device-Name': 'SyncLounge',
+        'X-Plex-Device-Name': `${this.$store.getters.getSettings.ALTUSERNAME}`,
         'X-Plex-Device-Screen-Resolution': `${window.screen.availWidth}x${window.screen.availHeight}`,
         'X-Plex-Token': this.chosenServer.accessToken,
       };
