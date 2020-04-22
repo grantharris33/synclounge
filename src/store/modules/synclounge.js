@@ -200,7 +200,7 @@ export default {
 
               const data = {
                 urlOrigin,
-                owner: rootState.plex.user.username || rootState.plex.user.title,
+                owner: rootState.settings.ALTUSERNAME || state.username,
                 server: state.server,
                 room: state.room,
                 password: state.password || '',
