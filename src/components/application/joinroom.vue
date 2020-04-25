@@ -11,7 +11,7 @@
             <h2 class="text-xs-center">Connect to a SyncedWatch room</h2>
           </v-flex>
             <v-flex xs12 md6 offset-md3 class="ml-4">
-              <p>It's time to connect to the SyncedWatch Room. Please enter your username and the room name and password that was given to you by your teacher.</p>
+              <p>It's time to connect to a SyncedWatch Room. Enter a username and a room name to create a room or join a room that has already been created.</p>
             </v-flex>
           <v-flex v-if="context.getters.getConnected" xs12 class="text-xs-center">
             <v-layout row wrap>

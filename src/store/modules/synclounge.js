@@ -223,7 +223,7 @@ export default {
               });
               state._socket.on('party-pausing-changed', ({ value, user }) => {
                 commit('ADD_MESSAGE', {
-                  msg: `Student Pausing has been turned ${value ? 'on' : 'off'}`,
+                  msg: `Room Pausing has been turned ${value ? 'on' : 'off'}`,
                   user,
                   type: 'alert',
                 });
